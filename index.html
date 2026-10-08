@@ -185,7 +185,13 @@
     margin-top: clamp(1.75rem, 4vw, 2.75rem);
   }
   @media (min-width: 40rem) { .formulary { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (min-width: 64rem) { .formulary { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (min-width: 40rem) and (max-width: 63.99rem) { .formulary > .rx:last-child { grid-column: span 2; } }
+  /* на широком экране: две карточки с двумя рецептами в первом ряду, три одиночные во втором */
+  @media (min-width: 64rem) {
+    .formulary { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+    .formulary > .rx { grid-column: span 2; }
+    .formulary > .rx--multi { grid-column: span 3; }
+  }
 
   .rx {
     position: relative;
@@ -278,9 +284,9 @@
   .rp:hover .rx__go svg, .rp:focus-visible .rx__go svg { transform: translateX(4px); }
 
   /* карточка с двумя рецептами: каждый рецепт отдельная ссылка */
-  @media (min-width: 40rem) { .rx--multi { grid-column: span 2; } }
+  @media (min-width: 40rem) and (max-width: 63.99rem) { .formulary > .rx--multi { grid-column: span 2; } }
+  .rx--multi { container-type: inline-size; }
   .rx__recipes { display: grid; margin: -.75rem; }
-  @media (min-width: 40rem) { .rx__recipes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   .rp {
     display: flex;
     flex-direction: column;
@@ -292,7 +298,9 @@
     transition: background-color .2s ease;
   }
   .rp + .rp { border-top: 1px dashed var(--rule); }
-  @media (min-width: 40rem) {
+  /* рецепты рядом, только когда карточке хватает ширины */
+  @container (min-width: 30rem) {
+    .rx__recipes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .rp + .rp { border-top: 0; border-left: 1px dashed var(--rule); }
   }
   .rp:hover { background: var(--tint); }
@@ -399,6 +407,39 @@
         </div>
       </article>
 
+      <article class="rx rx--multi">
+        <svg class="rx__herb" data-herb="hypericum" aria-hidden="true"></svg>
+        <div class="rx__head">
+          <h2>Тенотен</h2>
+          <span class="tag">ecom · блогеры</span>
+        </div>
+        <div class="rx__recipes">
+
+          <!-- ТЕНОТЕН, рецепт 1: вставить ссылку на Ecom Boost в href -->
+          <a class="rp" href="#" target="_blank" rel="noopener">
+            <dl class="rx__body">
+              <div class="rx__row"><dt class="abbr">Rp.:</dt><dd class="tool">Ecom Boost</dd></div>
+              <div class="rx__row"><dt class="abbr">D.S.</dt><dd class="desc">Продвижение в онлайн-аптеках и на маркетплейсах: позиции в поиске и продажи по SKU</dd></div>
+            </dl>
+            <span class="rx__go">Открыть инструмент
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+
+          <!-- ТЕНОТЕН, рецепт 2: вставить ссылку на Creatora в href -->
+          <a class="rp" href="#" target="_blank" rel="noopener">
+            <dl class="rx__body">
+              <div class="rx__row"><dt class="abbr">Rp.:</dt><dd class="tool">Creatora</dd></div>
+              <div class="rx__row"><dt class="abbr">D.S.</dt><dd class="desc">B2B-платформа: заказ интеграций у блогеров, маркировка рекламы, приёмка публикаций и расчёты с авторами в автоматическом режиме</dd></div>
+            </dl>
+            <span class="rx__go">Открыть инструмент
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+
+        </div>
+      </article>
+
       <!-- ЭРГОФЕРОН: вставить ссылку на нейроанализ креативов в href -->
       <a class="rx" href="#" target="_blank" rel="noopener">
         <svg class="rx__herb" data-herb="echinacea" aria-hidden="true"></svg>
@@ -409,22 +450,6 @@
         <dl class="rx__body">
           <div class="rx__row"><dt class="abbr">Rp.:</dt><dd class="tool">Нейроанализ креативов</dd></div>
           <div class="rx__row"><dt class="abbr">D.S.</dt><dd class="desc">Прогноз внимания к ролику или баннеру до выхода: тепловые карты и Attention Score</dd></div>
-        </dl>
-        <span class="rx__go">Открыть инструмент
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
-        </span>
-      </a>
-
-      <!-- ТЕНОТЕН: вставить ссылку на Ecom Boost в href -->
-      <a class="rx" href="#" target="_blank" rel="noopener">
-        <svg class="rx__herb" data-herb="hypericum" aria-hidden="true"></svg>
-        <div class="rx__head">
-          <h2>Тенотен</h2>
-          <span class="tag">ecom</span>
-        </div>
-        <dl class="rx__body">
-          <div class="rx__row"><dt class="abbr">Rp.:</dt><dd class="tool">Ecom Boost</dd></div>
-          <div class="rx__row"><dt class="abbr">D.S.</dt><dd class="desc">Продвижение в онлайн-аптеках и на маркетплейсах: позиции в поиске и продажи по SKU</dd></div>
         </dl>
         <span class="rx__go">Открыть инструмент
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>

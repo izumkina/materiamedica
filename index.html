@@ -185,12 +185,12 @@
     margin-top: clamp(1.75rem, 4vw, 2.75rem);
   }
   @media (min-width: 40rem) { .formulary { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (min-width: 40rem) and (max-width: 63.99rem) { .formulary > .rx:last-child { grid-column: span 2; } }
-  /* на широком экране: две карточки с двумя рецептами в первом ряду, три одиночные во втором */
+  /* на широком экране: Ренгалин на весь ряд, Тенотен и Тенотен Экспресс пополам, остальные по трети */
   @media (min-width: 64rem) {
     .formulary { grid-template-columns: repeat(6, minmax(0, 1fr)); }
     .formulary > .rx { grid-column: span 2; }
-    .formulary > .rx--multi { grid-column: span 3; }
+    .formulary > .rx--half { grid-column: span 3; }
+    .formulary > .rx--full { grid-column: 1 / -1; }
   }
 
   .rx {
@@ -374,7 +374,7 @@
 
     <main class="formulary">
 
-      <article class="rx rx--multi">
+      <article class="rx rx--multi rx--full">
         <svg class="rx__herb" data-herb="lavender" aria-hidden="true"></svg>
         <div class="rx__head">
           <h2>Ренгалин</h2>
@@ -382,8 +382,8 @@
         </div>
         <div class="rx__recipes">
 
-          <!-- РЕНГАЛИН, рецепт 1: вставить ссылку на ALL-VIDEO Planner в href -->
-          <a class="rp" href="#" target="_blank" rel="noopener">
+          <!-- РЕНГАЛИН, рецепт 1: ALL-VIDEO Planner -->
+          <a class="rp" href="https://videosplitter-plum.vercel.app/" target="_blank" rel="noopener">
             <dl class="rx__body">
               <div class="rx__row"><dt class="abbr">Rp.:</dt><dd class="tool">ALL-VIDEO Planner</dd></div>
               <div class="rx__row"><dt class="abbr">D.S.</dt><dd class="desc">Планирование видеокампаний: площадки, бюджет и прогноз охвата до запуска</dd></div>
@@ -393,8 +393,8 @@
             </span>
           </a>
 
-          <!-- РЕНГАЛИН, рецепт 2: вставить ссылку на AI-агента ПульсГипотез в href -->
-          <a class="rp" href="#" target="_blank" rel="noopener">
+          <!-- РЕНГАЛИН, рецепт 2: AI-агент ПульсГипотез -->
+          <a class="rp" href="https://izumkina.github.io/hypopulsedomru/" target="_blank" rel="noopener">
             <dl class="rx__body">
               <div class="rx__row"><dt class="abbr">Rp.:</dt><dd class="tool">AI-агент ПульсГипотез</dd></div>
               <div class="rx__row"><dt class="abbr">D.S.</dt><dd class="desc">Автоматизирует и оптимизирует аукционные размещения в digital-медийке</dd></div>
@@ -407,30 +407,30 @@
         </div>
       </article>
 
-      <article class="rx rx--multi">
+      <article class="rx rx--multi rx--half">
         <svg class="rx__herb" data-herb="hypericum" aria-hidden="true"></svg>
         <div class="rx__head">
           <h2>Тенотен</h2>
-          <span class="tag">ecom · блогеры</span>
+          <span class="tag">медиа · видео</span>
         </div>
         <div class="rx__recipes">
 
-          <!-- ТЕНОТЕН, рецепт 1: вставить ссылку на Ecom Boost в href -->
-          <a class="rp" href="#" target="_blank" rel="noopener">
+          <!-- ТЕНОТЕН, рецепт 1: SOV Analytics Tool, отдельная страница sov.html рядом с index.html -->
+          <a class="rp" href="sov.html" target="_blank" rel="noopener">
             <dl class="rx__body">
-              <div class="rx__row"><dt class="abbr">Rp.:</dt><dd class="tool">Ecom Boost</dd></div>
-              <div class="rx__row"><dt class="abbr">D.S.</dt><dd class="desc">Продвижение в онлайн-аптеках и на маркетплейсах: позиции в поиске и продажи по SKU</dd></div>
+              <div class="rx__row"><dt class="abbr">Rp.:</dt><dd class="tool">SOV Analytics Tool</dd></div>
+              <div class="rx__row"><dt class="abbr">D.S.</dt><dd class="desc">Доля рекламы бренда в категории и активность конкурентов по месяцам</dd></div>
             </dl>
             <span class="rx__go">Открыть инструмент
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
             </span>
           </a>
 
-          <!-- ТЕНОТЕН, рецепт 2: вставить ссылку на Creatora в href -->
-          <a class="rp" href="#" target="_blank" rel="noopener">
+          <!-- ТЕНОТЕН, рецепт 2: Реки Медиа, отдельная страница reki.html рядом с index.html -->
+          <a class="rp" href="reki.html" target="_blank" rel="noopener">
             <dl class="rx__body">
-              <div class="rx__row"><dt class="abbr">Rp.:</dt><dd class="tool">Creatora</dd></div>
-              <div class="rx__row"><dt class="abbr">D.S.</dt><dd class="desc">B2B-платформа: заказ интеграций у блогеров, маркировка рекламы, приёмка публикаций и расчёты с авторами в автоматическом режиме</dd></div>
+              <div class="rx__row"><dt class="abbr">Rp.:</dt><dd class="tool">Реки Медиа</dd></div>
+              <div class="rx__row"><dt class="abbr">D.S.</dt><dd class="desc">Реклама в вертикальных видео: размещения в эдитах, UGC-фабрика и микроинфлюенсеры</dd></div>
             </dl>
             <span class="rx__go">Открыть инструмент
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
@@ -440,8 +440,24 @@
         </div>
       </article>
 
-      <!-- ЭРГОФЕРОН: вставить ссылку на нейроанализ креативов в href -->
-      <a class="rx" href="#" target="_blank" rel="noopener">
+      <!-- ТЕНОТЕН ЭКСПРЕСС: Ecom Boost, отдельная страница ecom-boost.html рядом с index.html -->
+      <a class="rx rx--half" href="ecom-boost.html" target="_blank" rel="noopener">
+        <svg class="rx__herb" data-herb="valerian" aria-hidden="true"></svg>
+        <div class="rx__head">
+          <h2>Тенотен Экспресс</h2>
+          <span class="tag">ecom</span>
+        </div>
+        <dl class="rx__body">
+          <div class="rx__row"><dt class="abbr">Rp.:</dt><dd class="tool">Ecom Boost</dd></div>
+          <div class="rx__row"><dt class="abbr">D.S.</dt><dd class="desc">Продвижение в онлайн-аптеках и на маркетплейсах: позиции в поиске и продажи по SKU</dd></div>
+        </dl>
+        <span class="rx__go">Открыть инструмент
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+
+      <!-- ЭРГОФЕРОН: нейроанализ креативов -->
+      <a class="rx" href="https://app.powerbi.com/view?r=eyJrIjoiYTFkYzNlNjAtOGI4My00ZjhmLWEyNzMtMjEwOTZlYmQwMzZkIiwidCI6ImIzZTlmOGIxLTIzY2MtNGM3NC05Yzc2LTg5N2QzNzI5MzUzZCIsImMiOjl9" target="_blank" rel="noopener">
         <svg class="rx__herb" data-herb="echinacea" aria-hidden="true"></svg>
         <div class="rx__head">
           <h2>Эргоферон</h2>
@@ -456,8 +472,8 @@
         </span>
       </a>
 
-      <!-- ПРОСПЕКТА: вставить ссылку на анализ отзывов в href -->
-      <a class="rx" href="#" target="_blank" rel="noopener">
+      <!-- ПРОСПЕКТА: анализ отзывов, отдельная страница prospekta-otzyvy.html рядом с index.html -->
+      <a class="rx" href="prospekta-otzyvy.html" target="_blank" rel="noopener">
         <svg class="rx__herb" data-herb="ginkgo" aria-hidden="true"></svg>
         <div class="rx__head">
           <h2>Проспекта</h2>
@@ -472,16 +488,16 @@
         </span>
       </a>
 
-      <!-- АФАЛАЗА: вставить ссылку на SOV Analytics Tool в href -->
-      <a class="rx" href="#" target="_blank" rel="noopener">
+      <!-- АФАЛАЗА: Creatora -->
+      <a class="rx" href="https://creatora.tech/" target="_blank" rel="noopener">
         <svg class="rx__herb" data-herb="salvia" aria-hidden="true"></svg>
         <div class="rx__head">
           <h2>Афалаза</h2>
-          <span class="tag">медиа</span>
+          <span class="tag">блогеры</span>
         </div>
         <dl class="rx__body">
-          <div class="rx__row"><dt class="abbr">Rp.:</dt><dd class="tool">SOV Analytics Tool</dd></div>
-          <div class="rx__row"><dt class="abbr">D.S.</dt><dd class="desc">Доля рекламы бренда в категории и активность конкурентов по месяцам</dd></div>
+          <div class="rx__row"><dt class="abbr">Rp.:</dt><dd class="tool">Creatora</dd></div>
+          <div class="rx__row"><dt class="abbr">D.S.</dt><dd class="desc">Автоматизирует работу с блогерами: интеграции, маркировка рекламы, приёмка публикаций и расчёты</dd></div>
         </dl>
         <span class="rx__go">Открыть инструмент
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
@@ -896,7 +912,8 @@
     echinacea: [echinacea, '0 0 220 300'],
     hypericum: [hypericum, '0 0 220 300'],
     ginkgo:    [ginkgo,    '0 0 260 270'],
-    salvia:    [salvia,    '0 0 220 300']
+    salvia:    [salvia,    '0 0 220 300'],
+    valerian:  [valerian,  '0 0 320 680']
   };
   document.querySelectorAll('.rx__herb[data-herb]').forEach(el => {
     const h = herbs[el.dataset.herb];
